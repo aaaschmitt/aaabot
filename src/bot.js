@@ -41,6 +41,7 @@ client.on("messageCreate", message => {
 });
 
 client.on('interactionCreate', interaction => {
+    console.log("interactionCreate: ", interaction);
 	if (interaction.isButton() && interaction.id === "death-button") {
         console.log("Got button interaction:", interaction);
         const content =  interaction.message.content;
