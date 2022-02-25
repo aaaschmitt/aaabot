@@ -9,14 +9,12 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on("interactionCreate", async interaction => {
-    if (!interaction.isMessageComponent()) return;
-    
-    const msg_text = interaction.message().content();
+client.on("messageCreate", async message => {
+    const msg_text = message.content();
 
     if (msg_text === '!ping') {
         await interaction.reply('Pong!');
-    } else if (msg_text == 'andy') {
+    } else if (msg_text === '!andy') {
         await interaction.reply('Stop writing code and go to bed!');
     }
 });
