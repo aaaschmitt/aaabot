@@ -45,11 +45,12 @@ client.on('interactionCreate', interaction => {
 	if (interaction.isButton() && interaction.customId === "death-button") {
         console.log("Got button interaction:", interaction);
         const content =  interaction.message.content;
-        const num_deaths = parseInt(content.substring(content.indexOf(':')));
+        var num_deaths = parseInt(content.substring(content.indexOf(':')));
         if (isNaN(num_deaths)) {
             console.log("Failed to parse death button text: ", interaction);
             return;
         }
+        num_deaths += 1;
 
         const name = content.substring(0, content.indexOf('\'s'));
         const button_row = new MessageActionRow()
