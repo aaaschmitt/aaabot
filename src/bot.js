@@ -1,6 +1,6 @@
 // Require the necessary discord.js classes
 const { Client } = require('discord.js');
-const { GatewayIntentBits } = require('discord-api-types/v9');
+const { GatewayIntentBits } = require('discord-api-types/v10');
 
 // Create a new client instance
 const client = new Client({
@@ -8,7 +8,6 @@ const client = new Client({
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMessages,
       GatewayIntentBits.GuildMessageReactions,
-      GatewayIntentBits.GuildMembers,
     ],
   });
 
