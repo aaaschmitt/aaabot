@@ -1,12 +1,25 @@
-const Eris = require("eris");
+// Require the necessary discord.js classes
+const { Client, Intents } = require('discord.js');
 
-const bot = new Eris(process.env.BOT_TOKEN);
-bot.on("ready", () => {
-  console.log("Ready!");
+// Create a new client instance
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+
+// When the client is ready, run this code (only once)
+client.once('ready', () => {
+	console.log('Ready!');
 });
-bot.on("messageCreate", (msg) => {
-  if(msg.content === "!ping") {
-    bot.createMessage(msg.channel.id, "Pong!");
-  }
+
+client.on("interactionCreate", (interaction) => {
+    if (!interaction.isMessageComponent()) return;
+    
+    const msg_text = interaction.message().content();
+
+    if (msg_text === '!ping') {
+        await interaction.reply('Pong!');
+    } else if (msg_text == 'andy') {
+        await interaction.reply('Stop writing code and go to bed!');
+    }
 });
-bot.connect();
+
+// Login to Discord with your client's token
+client.login(process.env.BOT_TOKEN);
