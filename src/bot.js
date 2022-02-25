@@ -9,7 +9,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on("interactionCreate", (interaction) => {
+client.on("interactionCreate", async interaction => {
     if (!interaction.isMessageComponent()) return;
     
     const msg_text = interaction.message().content();
