@@ -33,7 +33,7 @@ client.on("messageCreate", message => {
 				new MessageButton()
 					.setCustomId('death-button')
 					.setLabel(name + " DIED")
-					.setStyle('DANER'),
+					.setStyle('DANGER'),
 			);
         
         message.reply({ content: name + '\'s Death Count: 0', components: [button_row] });
@@ -56,7 +56,7 @@ client.on('interactionCreate', interaction => {
 				new MessageButton()
 					.setCustomId('death-button')
 					.setLabel(name + " DIED")
-					.setStyle('DANER'),
+					.setStyle('DANGER'),
 			);
 
         interaction.update({ content: name + '\'s Death Count: ' + num_deaths, components: [button_row] })
