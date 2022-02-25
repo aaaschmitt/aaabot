@@ -9,14 +9,13 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on("messageCreate", async message => {
+client.on("messageCreate", message => {
     console.log("Message received: ", message);
-    const msg_text = message.content();
 
-    if (msg_text === '!ping') {
-        await interaction.reply('Pong!');
-    } else if (msg_text === '!andy') {
-        await interaction.reply('Stop writing code and go to bed!');
+    if (message.content === '!ping') {
+        message.channel.send('Pong!');
+    } else if (message.content === '!andy') {
+        message.channel.send('Stop writing code and go to bed!');
     }
 });
 
