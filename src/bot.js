@@ -10,6 +10,7 @@ client.once('ready', () => {
 });
 
 client.on("messageCreate", async message => {
+    console.log("Message received: ", message);
     const msg_text = message.content();
 
     if (msg_text === '!ping') {
