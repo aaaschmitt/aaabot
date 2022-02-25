@@ -42,7 +42,7 @@ client.on("messageCreate", message => {
 
 client.on('interactionCreate', interaction => {
     console.log("interactionCreate: ", interaction);
-	if (interaction.isButton() && interaction.id === "death-button") {
+	if (interaction.isButton() && interaction.customId === "death-button") {
         console.log("Got button interaction:", interaction);
         const content =  interaction.message.content;
         const num_deaths = parseInt(content.substring(content.indexOf(':')));
