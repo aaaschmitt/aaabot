@@ -46,7 +46,7 @@ client.on('interactionCreate', interaction => {
         console.log("Got button interaction:", interaction);
         const content =  interaction.message.content;
         const num_deaths = parseInt(content.substring(content.indexOf(':')));
-        if (isNaN(parsed)) {
+        if (isNaN(num_deaths)) {
             console.log("Failed to parse death button text: ", interaction);
             return;
         }
