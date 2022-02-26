@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "A chatbot for a discord server with my gamer friends.",
   "main": "./src/bot.js",
+  "type": "module",
   "scripts": {
-    "start": "node ./src/bot.js",
+    "start": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrew Schmitt",
   "license": "Unlicense",
   "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.27.3",
     "discord.js": "^13.6.0",
-    "discord-api-types" : "0.27.3"
+    "node-fetch": "^3.2.0"
   }
 }
