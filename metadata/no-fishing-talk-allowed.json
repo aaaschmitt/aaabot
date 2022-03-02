@@ -1,0 +1,40 @@
+{
+    "users": {
+        "aaaschmitty": {
+            "real_name": "andy",
+            "usernames": {
+                "origin": "aaaschmitt_ug92",
+                "xbox": "aaaschmitty"
+            },
+            "games": {
+                "apex": {
+                    "primary_account_type": "origin"
+                }
+            }
+        },
+        "showerhandle": {
+            "real_name": "james",
+            "usernames": {
+                "origin": "PirateSnoopy",
+                "xbox": "PirateSnoopy"
+            },
+            "games": {
+                "apex": {
+                    "primary_account_type": "origin"
+                }
+            }
+        },
+        "hockeydefense13": {
+            "real_name": "josh",
+            "usernames": {
+                "origin": "hockeydefense13",
+                "xbox": "TroutHunter5518"
+            },
+            "games": {
+                "apex": {
+                    "primary_account_type": "xbox"
+                }
+            }
+        }
+    }
+}
