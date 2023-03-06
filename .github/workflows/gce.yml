@@ -21,7 +21,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCE_PROJECT }}
-  GCE_INSTANCE: aaabot-instance
+  GCE_INSTANCE: aaabot-instance-containerized
   GCE_INSTANCE_ZONE: us-central1-a
 
 jobs:
