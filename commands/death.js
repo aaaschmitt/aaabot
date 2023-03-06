@@ -1,11 +1,11 @@
-import { MessageActionRow, MessageButton } from 'discord.js';
-import { SlashCommandBuilder } from '@discordjs/builders';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder } from 'discord.js';
 
 export const data = new SlashCommandBuilder()
     .setName('death')
     .setDescription('Create an interactive death counter! Darks Souls 3...')
     .addStringOption(option => option.setName('name').setDescription('Select the dead one\'s name.'))
     .addIntegerOption(option => option.setName('initial-count').setDescription('Number of deaths to start the count at (default is 0).'));
+    
 export const button = {
     customId: "death-button",
     async execute(interaction) {
@@ -18,12 +18,12 @@ export const button = {
         num_deaths += 1;
 
         const name = content.substring(0, content.indexOf('\'s'));
-        const button_row = new MessageActionRow()
+        const button_row = new ActionRowBuilder()
             .addComponents(
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId('death-button')
                     .setLabel(name + " DIED")
-                    .setStyle('DANGER')
+                    .setStyle(ButtonStyle.Danger)
             );
 
         interaction.update({ content: name + '\'s Death Count: ' + num_deaths, components: [button_row] });
@@ -39,12 +39,12 @@ export async function execute(interaction) {
     if (!initial_count) {
         initial_count = 0;
     }
-    const button_row = new MessageActionRow()
+    const button_row = new ActionRowBuilder()
         .addComponents(
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId('death-button')
                 .setLabel(name + " DIED")
-                .setStyle('DANGER')
+                .setStyle(ButtonStyle.Danger)
         );
 
     interaction.reply({ content: name + '\'s Death Count: ' + initial_count, components: [button_row] });

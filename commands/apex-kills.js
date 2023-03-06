@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { SlashCommandBuilder } from '@discordjs/builders';
+import { SlashCommandBuilder } from 'discord.js';
 import * as Metadata from '../metadata/metadata.js';
 
 const trackerNetworkApiKey = process.env.TRN_API_KEY;
@@ -41,6 +41,7 @@ export const data = new SlashCommandBuilder()
 	.addStringOption(option => option.setName('legend').setDescription('Filter to only kills using a specific legend'))
 	.addUserOption(option => option.setName('user').setDescription('Show kill counts for a Discord user broken down by legened.'))
 	.addStringOption(option => option.setName('name').setDescription('Show kill counts for a user by name e.g. "Andy".'));
+
 export async function execute(interaction) {
 	const legend = interaction.options.getString('legend');
 	const user_option = interaction.options.getUser('user');

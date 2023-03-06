@@ -1,9 +1,6 @@
 // Require the necessary discord.js classes
-import { Client, Collection } from 'discord.js';
-import { GatewayIntentBits } from 'discord-api-types/v10';
+import { Client, Collection, Events, GatewayIntentBits, REST, Routes } from 'discord.js';
 import { readdirSync } from 'node:fs';
-import { REST } from '@discordjs/rest';
-import { Routes } from 'discord-api-types/v9';
 
 const clientId = process.env.CLIENT_ID,
     guildId = process.env.GUILD_ID,
@@ -36,7 +33,7 @@ for (const file of commandFiles) {
 // NOTE: During development you might want to comment this out if not needed.
 // Register the application commands with Discord once on startup.
 try {
-    const rest = new REST({ version: '9' }).setToken(token);
+    const rest = new REST({ version: '10' }).setToken(token);
     await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: command_data });
     console.log('Successfully registered application commands.');
 } catch (error) {
@@ -48,7 +45,7 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-client.on('interactionCreate', async interaction => {
+client.on(Events.InteractionCreate, async interaction => {
     try {
         if (interaction.isCommand()) {
             const command = client.commands.get(interaction.commandName);
